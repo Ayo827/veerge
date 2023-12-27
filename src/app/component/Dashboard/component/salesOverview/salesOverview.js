@@ -1,8 +1,10 @@
 'use client'
 import { Box, Heading, Text, FormControl, Input } from '@chakra-ui/react';
 import { useState } from 'react';
-import ApexChart from './chart';
-import Transaction from './transaction';
+import dynamic from 'next/dynamic';
+
+const ApexChart = dynamic(() => import('./chart'), { ssr: false });
+const Transaction = dynamic(() => import('./transaction'), { ssr: false });
 
 export default function SalesOverview() {
     const [active, setActive] = useState(0);
